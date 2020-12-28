@@ -4,7 +4,7 @@ import java.util.Comparator;
  * FrekansKarsilastirici sınıfı Huffman ağaçlarını köklerindeki frekans değerlerine göre
  * karşılaştırır.
  */
- //Hüseyin Can Şimşek 17253064
+ 
 class FrekansKarsilastirici implements Comparator<HuffmanNode> {
 
     @Override
@@ -36,6 +36,7 @@ class AlfabetikKarsilastirici implements Comparator<HuffmanNode> {
       
       {
          String k="";
+         
           
           
            
@@ -47,16 +48,23 @@ class AlfabetikKarsilastirici implements Comparator<HuffmanNode> {
           String sag=dolas(a.right);
           if(sol.compareTo(sag)<0)
           {
-              k=sol;
+              return sol;
           }
          else if(sol.compareTo(sag)>0)
           {
-              k=sag;
+              return sag;
           }
-          
+          else
+          {
+              
+              
+              
+              k="";
+             
+          }
          
           
-          return k +(sol.equals("")?"":" ") +(sag.equals("")?"":" ")+a.value;
+          return k +String.valueOf(a.value);
       }
      
                 
@@ -96,14 +104,15 @@ class AlfabetikKarsilastirici implements Comparator<HuffmanNode> {
           {
               a=-1;
           }
-          else if(x.compareTo(y)==0)
-          {
-              a=0;
-          }
-          else
+          else if(x.compareTo(y)>0)
           {
               a=1;
           }
+          else
+          {
+              return 0;
+          }
+         
          
           return a;
       
